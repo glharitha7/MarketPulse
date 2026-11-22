@@ -1,0 +1,66 @@
+
+<div class="stock-card">
+
+  <div class="stock-header">
+    <div>
+      <h3>{{ stock.name }}</h3>
+      <span class="stock-symbol">{{ stock.symbol }}</span>
+    </div>
+  </div>
+
+  <div class="price-section">
+
+    <h2>${{ stock.price | number:'1.2-2' }}</h2>
+
+    <p
+      [class.positive]="stock.change > 0"
+      [class.negative]="stock.change < 0">
+
+      {{ stock.change > 0 ? '+' : '' }}{{ stock.change }}%
+
+    </p>
+
+  </div>
+
+  <div class="chart-heading">
+
+    <span>Candlestick chart</span>
+
+    <strong
+      [class.positive]="trendLabel === 'Up today'"
+      [class.negative]="trendLabel === 'Down today'"
+      [class.unchanged]="trendLabel === 'Unchanged today'">
+
+      {{ trendLabel }}
+
+    </strong>
+
+  </div>
+
+  <canvas #priceChart width="300" height="120"></canvas>
+
+  <div class="chart-legend">
+
+    <span>
+      <i class="green-box"></i>
+      Bullish
+    </span>
+
+    <span>
+      <i class="red-box"></i>
+      Bearish
+    </span>
+
+    <span>
+      <i class="yellow-box"></i>
+      Unchanged
+    </span>
+
+  </div>
+
+  <hr>
+
+  <!-- Content supplied by DashboardComponent -->
+  <ng-content></ng-content>
+
+</div>

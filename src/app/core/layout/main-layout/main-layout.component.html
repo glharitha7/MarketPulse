@@ -1,0 +1,88 @@
+
+<div class="app-container">
+
+  <!-- Sidebar -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+
+      <span class="brand-icon">M</span>
+
+      <span>MarketPulse</span>
+
+    </div>
+
+    <p class="menu-heading">WORKSPACE</p>
+
+    <nav>
+
+      @for (item of menuItems; track item.path) {
+
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="menu-item">
+
+          <span class="menu-icon">
+            {{ item.icon }}
+          </span>
+
+          {{ item.label }}
+
+        </a>
+
+      }
+
+    </nav>
+
+    <div class="sidebar-footer">
+
+      <span class="status-dot"></span>
+
+      Market data workspace
+
+    </div>
+
+  </aside>
+
+
+  <!-- Main Content -->
+
+  <main class="main-content">
+
+    <!-- Header -->
+
+    <!-- <header class="topbar">
+
+      <div>
+
+        <h3>Market Overview</h3>
+
+        <p>Welcome to your financial workspace</p>
+
+      </div>
+
+      <div class="user-profile">
+
+        <span class="avatar">MP</span>
+
+        <span>Market Analyst</span>
+
+      </div>
+
+    </header> -->
+
+
+    <!-- Dynamic Page Content -->
+
+    <section class="page-content">
+
+      <router-outlet />
+
+    </section>
+
+  </main>
+
+</div>

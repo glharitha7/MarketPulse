@@ -1,0 +1,86 @@
+
+<div class="dashboard">
+
+  <h2>Market Overview</h2>
+  <p>Real stock market data from Twelve Data</p>
+
+  @if (loading) {
+    <p class="loading-message">
+      Loading stock data...
+    </p>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      <p>{{ errorMessage }}</p>
+
+      <button type="button" (click)="loadStocks()">
+        Try Again
+      </button>
+    </div>
+  }
+
+  @if (!loading && !errorMessage && stocks.length > 0) {
+
+    <div class="stock-grid">
+
+      @for (stock of stocks; track stock.symbol) {
+
+        <app-market-card [stock]="stock">
+
+          <h4 #stockTitle>{{ stock.name }} Stock</h4>
+
+          <p>{{ stock.name }} stock information.</p>
+
+          <p>Symbol: {{ stock.symbol }}</p>
+
+        </app-market-card>
+
+      }
+
+    </div>
+
+    @if (!loading && !errorMessage && stocks.length > 0) {
+
+      <app-stock-table
+        [stocks]="stocks"
+        (stockSelected)="onStockSelected($event)">
+      </app-stock-table>
+
+    }
+
+    @if (selectedStock) {
+      <div class="selected-stock">
+        <h3>Selected Stock</h3>
+
+        <p>{{ selectedStock.name }}</p>
+
+        <p>Symbol: {{ selectedStock.symbol }}</p>
+
+        <p>Price: ${{ selectedStock.price | number:'1.2-2' }}</p>
+      </div>
+    }
+  }
+
+  <!-- <div class="lifecycle-panel">
+
+    <h3>Angular Lifecycle Monitor</h3>
+
+    <p>Live component activity</p>
+
+    @for (log of lifecycleLogs; track $index) {
+
+      <div class="log-item">
+        <div>
+          <strong>{{ log.hook }}</strong>
+          <p>{{ log.message }}</p>
+        </div>
+
+        <span>{{ log.time }}</span>
+      </div>
+
+    }
+
+  </div> -->
+
+</div>

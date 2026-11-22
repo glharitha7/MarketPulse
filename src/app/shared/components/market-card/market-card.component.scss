@@ -1,0 +1,121 @@
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.stock-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 20px;
+  color: #f8fafc;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.stock-header h3 {
+  margin: 0 0 5px;
+  font-size: 19px;
+}
+
+.stock-symbol {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.price-section {
+  margin-top: 18px;
+}
+
+.price-section h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.price-section p {
+  margin: 7px 0;
+  font-size: 14px;
+}
+
+.positive {
+  color: #4ade80 !important;
+}
+
+.negative {
+  color: #f87171 !important;
+}
+
+.unchanged {
+  color: #facc15 !important;
+}
+
+.chart-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin: 22px 0 12px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.chart-heading strong {
+  font-size: 12px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.chart-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.green-box,
+.red-box,
+.yellow-box {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.green-box {
+  background: #22c55e;
+}
+
+.red-box {
+  background: #ef4444;
+}
+
+.yellow-box {
+  background: #facc15;
+}
+
+.stock-card hr {
+  border: 0;
+  border-top: 1px solid #334155;
+  margin: 18px 0;
+}
